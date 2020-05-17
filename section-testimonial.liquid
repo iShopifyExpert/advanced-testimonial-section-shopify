@@ -81,14 +81,12 @@
     $('.testimonials__controls-arrow__next').click(function(){
       $('[data-testimonial-slider]').slick('slickNext');
     });
-    $('.testimonials__slider [data-testimonial-slider]').on('beforeChange', function(event, slick, currentSlide){
-      var sbody = $('.slick-slide.slick-current').find('[data-testimonial-body]').text();
-      var sname = $('.slick-slide.slick-current').find('[data-testimonial-person-name]').text();
-      var stitle = $('.slick-slide.slick-current').find('[data-testimonial-person-title]').text();
+    $('.testimonials__slider [data-testimonial-slider]').on('afterChange', function(event, slick, currentSlide, nextSlide){
+      var slickcurrent = $(slick.$slides[currentSlide]); //$('.slick-slide.slick-current')
       $('.testimonials__text').addClass('js-fade-in', 100, jsfadein);
-      $('.testimonials__text__body').text(sbody);
-      $('.testimonials__text__person-name').text(sname);
-      $('.testimonials__text__person-title').text(stitle);
+      $('.testimonials__text__body').text(slickcurrent.find('[data-testimonial-body]').text());
+      $('.testimonials__text__person-name').text(slickcurrent.find('[data-testimonial-person-name]').text());
+      $('.testimonials__text__person-title').text(slickcurrent.find('[data-testimonial-person-title]').text());
       function jsfadein() { setTimeout(function() { $('.testimonials__text').removeClass('js-fade-in'); }, 300 ); }
     });
   });
