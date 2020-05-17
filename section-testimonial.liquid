@@ -81,7 +81,7 @@
     $('.testimonials__controls-arrow__next').click(function(){
       $('[data-testimonial-slider]').slick('slickNext');
     });
-    $('.testimonials__slider [data-testimonial-slider]').on('afterChange', function(event, slick, currentSlide){
+    $('.testimonials__slider [data-testimonial-slider]').on('beforeChange', function(event, slick, currentSlide){
       var sbody = $('.slick-slide.slick-current').find('[data-testimonial-body]').text();
       var sname = $('.slick-slide.slick-current').find('[data-testimonial-person-name]').text();
       var stitle = $('.slick-slide.slick-current').find('[data-testimonial-person-title]').text();
